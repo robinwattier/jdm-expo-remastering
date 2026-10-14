@@ -85,100 +85,110 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 3. CINEMATIC HERO SLIDER CONTROLLER
+  // 3. CONTINUOUS VIDEO WATCHDOG & THEMATIC HIGHLIGHTS CONTROLLER
   // ------------------------------------------------------------------------
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.slider-dot');
-  const prevBtn = document.getElementById('hero-prev');
-  const nextBtn = document.getElementById('hero-next');
-  let currentSlideIndex = 0;
-  let slideInterval = null;
-  const SLIDE_DURATION = 5500;
+  const heroVideo = document.getElementById('hero-bg-video');
 
-  function showSlide(index) {
-    if (!slides.length) return;
-    if (index >= slides.length) index = 0;
-    if (index < 0) index = slides.length - 1;
+  // Enforce continuous playback with JS watchdog (from prompt-evo-site.md)
+  if (heroVideo) {
+    const enforcePlay = () => {
+      const playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Swallow any play() promise rejection (browser autoplay policy)
+        });
+      }
+    };
 
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
+    enforcePlay();
+
+    ['pause', 'ended', 'loadedmetadata', 'canplay'].forEach(evt => {
+      heroVideo.addEventListener(evt, enforcePlay);
     });
 
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        enforcePlay();
+      }
     });
 
-    currentSlideIndex = index;
+    // 1-second watchdog interval resuming video whenever paused
+    setInterval(() => {
+      if (heroVideo.paused) {
+        enforcePlay();
+      }
+    }, 1000);
   }
 
-  function nextSlide() {
-    showSlide(currentSlideIndex + 1);
-  }
+  // Thematic Highlights data preserving all 4 authentic contents from JDM Expo
+  const heroHighlights = [
+    {
+      kicker: 'R34 LEGENDARY MOTORSPORT • EST. 1980s',
+      heading: 'DRIVE YOUR <span>DREAM CAR</span>',
+      desc: 'R 34 – The fifth generation of the GT-Rs and still the most dominant vehicle in motorsports. Unrivaled twin-turbo RB26DETT power and ATTESA E-TS all-wheel drive mastery.'
+    },
+    {
+      kicker: 'CENTRAL JAPAN HEADQUARTERS • NAGOYA',
+      heading: 'YATOMI-SHI <span>HEAD OFFICE</span>',
+      desc: 'We welcome you to visit us in Nagoya anytime during working hours and try out your dream car before the excited purchase decision. Inspect over 100+ sports cars in stock.'
+    },
+    {
+      kicker: 'IN-HOUSE TUNING & RESTORATION',
+      heading: 'JDM EXPO <span>TUNING MASTERY</span>',
+      desc: 'We are a leader in Japanese automotive industry in exporting Japanese iconic sports cars – Skyline GT-R R32, R33 & R34s and provide you absolutely great vehicles and services at unbeatable prices!'
+    },
+    {
+      kicker: 'WORLDWIDE DOOR-TO-DOOR LOGISTICS',
+      heading: 'JDM CLASSIC <span>CUSTOM SOURCING</span>',
+      desc: 'Our offered cars are not only limited to our existing stock. Upon your special inquiry, we also provide custom search for the cars from local dealers and deliver it to your front door anywhere around the globe!'
+    }
+  ];
 
-  function prevSlide() {
-    showSlide(currentSlideIndex - 1);
-  }
+  const heroPills = document.querySelectorAll('.hero-pill-item');
+  const heroKickerText = document.getElementById('hero-kicker-text');
+  const heroHeadingText = document.getElementById('hero-heading-text');
+  const heroDescText = document.getElementById('hero-desc-text');
+  let currentHighlightIndex = 0;
+  let highlightTimer = null;
 
-  function startSlideTimer() {
-    stopSlideTimer();
-    slideInterval = setInterval(nextSlide, SLIDE_DURATION);
-  }
+  function setHighlight(idx) {
+    if (idx >= heroHighlights.length) idx = 0;
+    if (idx < 0) idx = heroHighlights.length - 1;
+    currentHighlightIndex = idx;
 
-  function stopSlideTimer() {
-    if (slideInterval) clearInterval(slideInterval);
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      startSlideTimer();
+    heroPills.forEach((pill, i) => {
+      pill.classList.toggle('active', i === idx);
     });
+
+    const data = heroHighlights[idx];
+    if (heroKickerText) heroKickerText.textContent = data.kicker;
+    if (heroHeadingText) heroHeadingText.innerHTML = data.heading;
+    if (heroDescText) heroDescText.textContent = data.desc;
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      startSlideTimer();
-    });
-  }
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      showSlide(i);
-      startSlideTimer();
+  heroPills.forEach((pill, i) => {
+    pill.addEventListener('click', () => {
+      setHighlight(i);
+      resetHighlightTimer();
     });
   });
 
-  const heroWrapper = document.querySelector('.hero-slider-wrapper');
-  if (heroWrapper) {
-    heroWrapper.addEventListener('mouseenter', stopSlideTimer);
-    heroWrapper.addEventListener('mouseleave', startSlideTimer);
-
-    // Touch swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    heroWrapper.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    heroWrapper.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-      if (touchEndX < touchStartX - 40) {
-        nextSlide();
-        startSlideTimer();
-      }
-      if (touchEndX > touchStartX + 40) {
-        prevSlide();
-        startSlideTimer();
-      }
-    }
+  function startHighlightTimer() {
+    stopHighlightTimer();
+    highlightTimer = setInterval(() => {
+      setHighlight(currentHighlightIndex + 1);
+    }, 6000);
   }
 
-  startSlideTimer();
+  function stopHighlightTimer() {
+    if (highlightTimer) clearInterval(highlightTimer);
+  }
+
+  function resetHighlightTimer() {
+    startHighlightTimer();
+  }
+
+  startHighlightTimer();
 
   // ------------------------------------------------------------------------
   // 4. INTERACTIVE INVENTORY FILTER & SEARCH ENGINE

@@ -295,109 +295,71 @@
 
   <main id="main-content">
     <!-- =======================================================================
-         4. CINEMATIC HERO SECTION & CAROUSEL
+         4. CINEMATIC HERO SECTION — VELORA LUXURY FULL-BLEED VIDEO
          ======================================================================= -->
-    <section class="hero-section" aria-label="Featured JDM Showcase">
-      <div class="hero-slider-wrapper">
-        <!-- Slide 1: R34 Skyline GT-R -->
-        <article class="hero-slide active" data-slide="0" aria-current="true">
-          <img src="https://jdm-expo.com/modules/homeslider/images/5d17da4f1d0b83ea721d3535e4dc21b0a9b81433_slider1.jpg" alt="Nissan Skyline GT-R R34 BNR34 in action" class="hero-slide-bg" loading="eager">
-          <div class="hero-slide-overlay"></div>
-          <div class="container hero-content">
-            <div class="hero-badge-tag">
-              <span class="status-pulse-dot" style="background:var(--color-accent-racing);box-shadow:0 0 8px var(--color-accent-racing);"></span>
-              R34 LEGENDARY MOTORSPORT
-            </div>
-            <h1 class="hero-title">DRIVE YOUR <span class="gradient-text">DREAM CAR</span></h1>
-            <p class="hero-description">
-              R 34 – The fifth generation of the GT-Rs and still the most dominant vehicle in motorsports. Unrivaled twin-turbo RB26DETT power and ATTESA E-TS all-wheel drive mastery.
-            </p>
-            <div class="hero-btn-group">
-              <a href="#inventory" class="btn btn-primary btn-lg">Explore Inventory</a>
-              <a href="#usa-imports" class="btn btn-secondary btn-lg">USA 25-Year Rule Guide</a>
-            </div>
-          </div>
-        </article>
+    <section class="hero-section" aria-label="JDM Expo Cinematic Showcase">
+      <!-- Full-bleed background video covering the entire hero -->
+      <video id="hero-bg-video" class="hero-video-bg" autoplay muted loop playsinline preload="auto" poster="https://jdm-expo.com/modules/homeslider/images/5d17da4f1d0b83ea721d3535e4dc21b0a9b81433_slider1.jpg">
+        <source src="assets/hero-video.mp4" type="video/mp4">
+        <source src="https://cdn.sceneai.art/Hero%20section%20video%20file%20(2)/37091057-3719-4207-815c-745ebf57aeb4.mp4" type="video/mp4">
+      </video>
 
-        <!-- Slide 2: Yatomi-shi Head Office -->
-        <article class="hero-slide" data-slide="1">
-          <img src="https://jdm-expo.com/modules/homeslider/images/8b4ead5c06688e924820ddc3c12c7b81a1b5ee6c_DSC092501.jpg" alt="JDM Expo Yatomi-shi Head Office facility in Nagoya, Japan" class="hero-slide-bg" loading="lazy">
-          <div class="hero-slide-overlay"></div>
-          <div class="container hero-content">
-            <div class="hero-badge-tag">
-              <span class="status-pulse-dot" style="background:var(--color-status-live);box-shadow:0 0 8px var(--color-status-live);"></span>
-              CENTRAL JAPAN HEADQUARTERS
-            </div>
-            <h2 class="hero-title">YATOMI-SHI <span class="gradient-text">HEAD OFFICE</span></h2>
-            <p class="hero-description">
-              We welcome you to visit us in Nagoya anytime during working hours and try out your dream car before the excited purchase decision. Inspect over 100+ sports cars in stock.
-            </p>
-            <div class="hero-btn-group">
-              <a href="#contact" class="btn btn-primary btn-lg">Schedule Facility Visit</a>
-              <a href="#heritage" class="btn btn-secondary btn-lg">Company Profile</a>
-            </div>
-          </div>
-        </article>
+      <!-- Top-to-bottom dark gradient overlay for legibility -->
+      <div class="hero-video-overlay" aria-hidden="true"></div>
 
-        <!-- Slide 3: JDM EXPO Tuning -->
-        <article class="hero-slide" data-slide="2">
-          <img src="https://jdm-expo.com/modules/homeslider/images/ea1fca7e92566288783cc8ece1faf3471db14a19_slider2.jpg" alt="JDM Expo professional workshop and tuning center" class="hero-slide-bg" loading="lazy">
-          <div class="hero-slide-overlay"></div>
-          <div class="container hero-content">
-            <div class="hero-badge-tag">
-              <span class="status-pulse-dot" style="background:#38bdf8;box-shadow:0 0 8px #38bdf8;"></span>
-              IN-HOUSE TUNING & RESTORATION
-            </div>
-            <h2 class="hero-title">JDM EXPO <span class="gradient-text">TUNING MASTERY</span></h2>
-            <p class="hero-description">
-              We are a leader in Japanese automotive industry in exporting Japanese iconic sports cars – Skyline GT-R R32, R33 & R34s and provide you absolutely great vehicles and services at unbeatable prices!
-            </p>
-            <div class="hero-btn-group">
-              <a href="#inventory" class="btn btn-primary btn-lg">View Tuned GT-Rs</a>
-              <a href="#services" class="btn btn-secondary btn-lg">Reconditioning Services</a>
-            </div>
-          </div>
-        </article>
+      <!-- Giant Headline: scales purely with frame width (13.3vw) -->
+      <div class="hero-giant-headline" aria-hidden="true">
+        JDM LEGENDS
+      </div>
 
-        <!-- Slide 4: JDM Classic Cars -->
-        <article class="hero-slide" data-slide="3">
-          <img src="https://jdm-expo.com/modules/homeslider/images/8859ad72763a03e942c4fad778b9e3cc1df702ea_slider3.jpg" alt="Rare vintage Japanese classic sports cars" class="hero-slide-bg" loading="lazy">
-          <div class="hero-slide-overlay"></div>
-          <div class="container hero-content">
-            <div class="hero-badge-tag">
-              <span class="status-pulse-dot" style="background:#fbbf24;box-shadow:0 0 8px #fbbf24;"></span>
-              WORLDWIDE DOOR-TO-DOOR LOGISTICS
-            </div>
-            <h2 class="hero-title">JDM CLASSIC <span class="gradient-text">CUSTOM SOURCING</span></h2>
-            <p class="hero-description">
-              Our offered cars are not only limited to our existing stock. Upon your special inquiry, we also provide custom search for the cars from local dealers and deliver it to your front door anywhere around the globe!
-            </p>
-            <div class="hero-btn-group">
-              <a href="#contact" class="btn btn-primary btn-lg">Request Custom Search</a>
-              <a href="http://auc.jdm-expo.com" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">Auction Direct Access</a>
-            </div>
-          </div>
-        </article>
+      <!-- Bottom-Left Hero Copy Block (Velora Luxury Style) -->
+      <div class="hero-bottom-copy">
+        <div class="kicker">
+          <span class="status-pulse-dot" style="background:var(--color-accent-racing);box-shadow:0 0 8px var(--color-accent-racing);"></span>
+          <span id="hero-kicker-text">CENTRAL JAPAN PREMIER EXPORTER • EST. 1980s</span>
+        </div>
+        <h1 class="hero-copy-heading" id="hero-heading-text">
+          DRIVE YOUR <span>DREAM CAR</span>
+        </h1>
+        <p class="hero-copy-desc" id="hero-desc-text">
+          Enjoy a premier automotive export experience with exclusive Skyline GT-Rs, Hakosukas, and JDM icons. Over 36 years of heritage, direct auction access, and certified worldwide door-to-door delivery.
+        </p>
 
-        <!-- Slider Controls Navigation -->
-        <div class="slider-controls-wrap">
-          <div class="slider-pagination" role="tablist" aria-label="Slider Pagination">
-            <button class="slider-dot active" data-slide-target="0" role="tab" aria-label="Slide 1: Drive Your Dream Car"></button>
-            <button class="slider-dot" data-slide-target="1" role="tab" aria-label="Slide 2: Yatomi-shi Office"></button>
-            <button class="slider-dot" data-slide-target="2" role="tab" aria-label="Slide 3: JDM Expo Tuning"></button>
-            <button class="slider-dot" data-slide-target="3" role="tab" aria-label="Slide 4: JDM Classic Cars"></button>
-          </div>
-
-          <div class="slider-arrows">
-            <button class="slider-arrow-btn" id="hero-prev" aria-label="Previous slide">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            <button class="slider-arrow-btn" id="hero-next" aria-label="Next slide">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-          </div>
+        <div class="hero-btn-row">
+          <a href="#inventory" class="btn-velora-glass">
+            <span>DISCOVER NOW</span>
+            <span class="arrow-icon">↗</span>
+          </a>
+          <a href="#usa-imports" class="btn-velora-crimson">
+            <span>USA 25-YEAR RULE</span>
+            <span class="arrow-icon">↗</span>
+          </a>
         </div>
       </div>
+
+      <!-- Bottom-Right Thematic Highlights Switcher & Live Video Indicator -->
+      <aside class="hero-bottom-right-panel" aria-label="Hero Highlights Switcher">
+        <div class="hero-live-badge">
+          <span class="status-pulse-dot"></span>
+          <span>4K MOTORSPORT FEED</span>
+        </div>
+
+        <nav class="hero-pills-nav" aria-label="Thematic Highlights">
+          <button class="hero-pill-item active" data-highlight="0" aria-label="Highlight 1: R34 GT-R Dominance">
+            <span>R34 GT-R Dominance</span>
+          </button>
+          <button class="hero-pill-item" data-highlight="1" aria-label="Highlight 2: Yatomi-shi Head Office">
+            <span>Yatomi-shi Head Office</span>
+          </button>
+          <button class="hero-pill-item" data-highlight="2" aria-label="Highlight 3: JDM EXPO Tuning">
+            <span>JDM EXPO Tuning</span>
+          </button>
+          <button class="hero-pill-item" data-highlight="3" aria-label="Highlight 4: Classic Custom Sourcing">
+            <span>Classic Sourcing</span>
+          </button>
+        </nav>
+      </aside>
+    </section>
 
       <!-- Quick Vehicle Configurator Bar (Directly beneath hero) -->
       <div class="container">
@@ -462,7 +424,6 @@
           </div>
         </div>
       </div>
-    </section>
 
     <!-- =======================================================================
          5. INSTITUTIONAL HERITAGE & USA 25-YEAR IMPORTS SPOTLIGHT
