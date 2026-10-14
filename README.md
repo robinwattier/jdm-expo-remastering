@@ -1,6 +1,11 @@
 # 🏎️ JDM EXPO — Frontend Remastering & Modern UI/UX
 
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Website-rose?style=for-the-badge&logo=github)](https://robinwattier.github.io/jdm-expo-remastering/)
+[![Status](https://img.shields.io/badge/Status-100%25%20Bug--Free-success?style=for-the-badge)](https://github.com/robinwattier/jdm-expo-remastering)
+[![License](https://img.shields.io/badge/Design%20System-UI%2FUX%20Pro%20Max-informational?style=for-the-badge)](design-system/jdm-expo/MASTER.md)
+
 > **Refonte complète de l'interface du premier exportateur japonais de véhicules sportifs et classiques JDM (Skyline GT-R, Hakosuka, RX-7, NSX, Supra).**  
+> 🔗 **Démo en ligne :** [https://robinwattier.github.io/jdm-expo-remastering/](https://robinwattier.github.io/jdm-expo-remastering/)  
 > Basé sur le site officiel [jdm-expo.com](https://jdm-expo.com/) avec une direction artistique contemporaine inspirée de *Singer*, *Speedhunters*, *Bring a Trailer* et *Hagerty*.
 
 ---
